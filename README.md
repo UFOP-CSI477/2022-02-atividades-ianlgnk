@@ -2,11 +2,11 @@
 
 ## Atualize os seus dados
 
-- Nome:
-- Matrícula:
-- Curso:
-- Semestre/Ano correntes:
-- Link para o seu GitHub:
+- Nome: Ian Langkammer Batista
+- Matrícula: 20.1.8008
+- Curso: Sistemas de Informação
+- Semestre/Ano correntes: 01/2023
+- Link para o seu GitHub: [https://github.com/ianlgnk](ianlgnk)
 
 ## [Projeto final:](./Projeto/README.md)
 
