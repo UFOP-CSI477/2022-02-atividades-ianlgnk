@@ -10,4 +10,4 @@
 
 ## [Projeto final:](./Projeto/README.md)
 
-Apresente uma breve descrição do seu projeto.
+A plataforma de gerenciamento de estágios é uma ferramenta online que facilita a divulgação e o controle de estágios para estudantes e empresas. Ela permite que as empresas publiquem vagas de estágio e que os estudantes possam se candidatar a elas, além de oferecer recursos para gerenciamento das vagas vigentes, assim como também os estudantes também pode gerenciar as suas candidaturas.
