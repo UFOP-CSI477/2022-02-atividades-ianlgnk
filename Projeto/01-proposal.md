@@ -1,35 +1,31 @@
-# **CSI606-2021-02 - Remoto - Proposta de Trabalho Final**
+# **CSI606-2022-02 - Gerenciamento de estágios - divulgação e controle**
 
-## *Aluna(o): Princesa Leia (Luke Skywalker)*
-
---------------
-
-<!-- Descrever um resumo sobre o trabalho. -->
+## *Aluno: Ian Langkammer Batista*
 
 ### Resumo
 
-  (Apresentar um breve resumo sobre o seu trabalho, indicando o contexto e as principais funcionalidades.)
+A plataforma de gerenciamento de estágios é uma ferramenta online que facilita a divulgação e o controle de estágios para estudantes e empresas. Ela permite que as empresas publiquem vagas de estágio e que os estudantes possam se candidatar a elas, além de oferecer recursos para gerenciamento das vagas vigentes, assim como também os estudantes também pode gerenciar as suas candidaturas.
 
-<!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de ...
+O trabalho final tem como tema o desenvolvimento de uma plataforma web utilizando Vue e Node.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
 
-  Este projeto terá as seguintes funcionalidades...
+Este projeto terá as seguintes funcionalidades:
+  - <i>Login</i> (empresas e alunos)
+  - Cadastro (empresas e alunos)
+  - CRUD de vagas (empresas)
+  - Inscrição para as vagas (alunos)
+  - Edição de perfil (empresas e alunos)
 
-<!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
 
-  Neste trabalho não serão considerados ...
+Neste trabalho não serão considerados os processos de admissão de cada empresa, por exemplo as etapas de fit cultural, teste técnico, entre outros... tudo isso fica por responsabilidade da empresa, enquanto a plataforma se especializa em gerenciar as vagas e os candidatos que estão inscritos nelas.
 
-<!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
-  Protótipos para as páginas (descrever quais páginas) foram elaborados, e podem ser encontrados em...
+Em desenvolvimento...
 
 ### 5. Referências
-
-  Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT.
