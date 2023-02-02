@@ -40,7 +40,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   }
 
   return res.status(500).json({
-    msg: `Internal server error - ${err.message}`,
+    msg: `internal server error - ${err.message}`,
     statusCode: 500,
   });
 });

@@ -6,41 +6,41 @@ export class TipoSanguineoRepository
   implements Repository<number, TipoSanguineo>
 {
   async create(entity: TipoSanguineo): Promise<TipoSanguineo> {
-    const tipoSanguineo = await Prisma.tipoSanguineo.create({
+    const item = await Prisma.tipoSanguineo.create({
       data: { ...entity },
     });
 
-    return tipoSanguineo;
+    return item;
   }
 
   async update(id: number, entity: TipoSanguineo): Promise<TipoSanguineo> {
-    const tipoSanguineo = await Prisma.tipoSanguineo.update({
+    const item = await Prisma.tipoSanguineo.update({
       where: { id: id },
       data: { ...entity },
     });
 
-    return tipoSanguineo;
+    return item;
   }
 
   async delete(id: number): Promise<TipoSanguineo> {
-    const tipoSanguineo = await Prisma.tipoSanguineo.delete({
+    const item = await Prisma.tipoSanguineo.delete({
       where: { id: id },
     });
 
-    return tipoSanguineo;
+    return item;
   }
 
   async listAll(): Promise<TipoSanguineo[]> {
-    const tipoSanguineo = await Prisma.tipoSanguineo.findMany();
+    const itens = await Prisma.tipoSanguineo.findMany();
 
-    return tipoSanguineo;
+    return itens;
   }
 
   async findById(id: number): Promise<TipoSanguineo | null> {
-    const tipoSanguineo = await Prisma.tipoSanguineo.findUnique({
+    const item = await Prisma.tipoSanguineo.findUnique({
       where: { id: id },
     });
 
-    return tipoSanguineo;
+    return item;
   }
 }

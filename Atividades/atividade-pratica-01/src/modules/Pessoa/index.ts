@@ -6,7 +6,7 @@ const controller = new PessoaController();
 
 pessoaRoutes.get("/", controller.listAll);
 pessoaRoutes.get("/:id", controller.findById);
-pessoaRoutes.get("/nome/:nome", controller.findByName);
+pessoaRoutes.get("/nome/:name", controller.findByName);
 pessoaRoutes.post("/", controller.create);
 pessoaRoutes.put("/:id", controller.update);
 pessoaRoutes.delete("/:id", controller.delete);

@@ -6,38 +6,38 @@ export class EstadoService implements Service<Estado> {
   private repository: EstadoRepository = new EstadoRepository();
 
   async create(entity: any): Promise<Estado> {
-    const estado = await this.repository.create(entity);
+    const item = await this.repository.create(entity);
 
-    return estado;
+    return item;
   }
 
   async update(id: number, entity: any): Promise<Estado> {
-    const estado = await this.repository.update(id, entity);
+    const item = await this.repository.update(id, entity);
 
-    return estado;
+    return item;
   }
 
   async delete(id: number): Promise<Estado> {
-    const estado = await this.repository.delete(id);
+    const item = await this.repository.delete(id);
 
-    return estado;
+    return item;
   }
 
   async listAll(): Promise<Estado[]> {
-    const estados = await this.repository.listAll();
+    const itens = await this.repository.listAll();
 
-    return estados;
+    return itens;
   }
 
   async findById(id: number): Promise<Estado | null> {
-    const estado = await this.repository.findById(id);
+    const item = await this.repository.findById(id);
 
-    return estado;
+    return item;
   }
 
   async findByName(name: string): Promise<Estado[]> {
-    const estados = await this.repository.findByName(name);
+    const itens = await this.repository.findByName(name);
 
-    return estados;
+    return itens;
   }
 }

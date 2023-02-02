@@ -6,32 +6,32 @@ export class TipoSanguineoService implements Service<TipoSanguineo> {
   private repository: TipoSanguineoRepository = new TipoSanguineoRepository();
 
   async create(entity: any): Promise<TipoSanguineo> {
-    const tipoSanguineo = await this.repository.create(entity);
+    const item = await this.repository.create(entity);
 
-    return tipoSanguineo;
+    return item;
   }
 
   async update(id: number, entity: any): Promise<TipoSanguineo> {
-    const tipoSanguineo = await this.repository.update(id, entity);
+    const item = await this.repository.update(id, entity);
 
-    return tipoSanguineo;
+    return item;
   }
 
   async delete(id: number): Promise<TipoSanguineo> {
-    const tipoSanguineo = await this.repository.delete(id);
+    const item = await this.repository.delete(id);
 
-    return tipoSanguineo;
+    return item;
   }
 
   async listAll(): Promise<TipoSanguineo[]> {
-    const tiposSanguineos = await this.repository.listAll();
+    const itens = await this.repository.listAll();
 
-    return tiposSanguineos;
+    return itens;
   }
 
   async findById(id: number): Promise<TipoSanguineo | null> {
-    const tipoSanguineo = await this.repository.findById(id);
+    const item = await this.repository.findById(id);
 
-    return tipoSanguineo;
+    return item;
   }
 }

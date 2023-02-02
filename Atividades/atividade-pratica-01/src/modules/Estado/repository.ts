@@ -4,46 +4,46 @@ import { Estado } from "@prisma/client";
 
 export class EstadoRepository implements Repository<number, Estado> {
   async create(entity: Estado): Promise<Estado> {
-    const estado = await Prisma.estado.create({
+    const item = await Prisma.estado.create({
       data: { ...entity },
     });
 
-    return estado;
+    return item;
   }
 
   async update(id: number, entity: Estado): Promise<Estado> {
-    const estado = await Prisma.estado.update({
+    const item = await Prisma.estado.update({
       where: { id: id },
       data: { ...entity },
     });
 
-    return estado;
+    return item;
   }
 
   async delete(id: number): Promise<Estado> {
-    const estado = await Prisma.estado.delete({
+    const item = await Prisma.estado.delete({
       where: { id: id },
     });
 
-    return estado;
+    return item;
   }
 
   async listAll(): Promise<Estado[]> {
-    const estado = await Prisma.estado.findMany();
+    const itens = await Prisma.estado.findMany();
 
-    return estado;
+    return itens;
   }
 
   async findById(id: number): Promise<Estado | null> {
-    const estado = await Prisma.estado.findUnique({
+    const item = await Prisma.estado.findUnique({
       where: { id: id },
     });
 
-    return estado;
+    return item;
   }
 
   async findByName(name: string): Promise<Estado[]> {
-    const estados = await Prisma.estado.findMany({
+    const itens = await Prisma.estado.findMany({
       where: {
         nome: {
           contains: name,
@@ -51,6 +51,6 @@ export class EstadoRepository implements Repository<number, Estado> {
       },
     });
 
-    return estados;
+    return itens;
   }
 }

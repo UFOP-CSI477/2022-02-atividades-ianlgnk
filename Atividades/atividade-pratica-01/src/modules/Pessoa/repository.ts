@@ -4,42 +4,42 @@ import Prisma from "../../shared/infra/prisma";
 
 export class PessoaRepository implements Repository<number, Pessoa> {
   async create(entity: Pessoa): Promise<Pessoa> {
-    const pessoa = await Prisma.pessoa.create({
+    const item = await Prisma.pessoa.create({
       data: { ...entity },
     });
 
-    return pessoa;
+    return item;
   }
 
   async update(id: number, entity: Pessoa): Promise<Pessoa> {
-    const pessoa = await Prisma.pessoa.update({
+    const item = await Prisma.pessoa.update({
       where: { id: id },
       data: { ...entity },
     });
 
-    return pessoa;
+    return item;
   }
 
   async delete(id: number): Promise<Pessoa> {
-    const pessoa = await Prisma.pessoa.delete({ where: { id: id } });
+    const item = await Prisma.pessoa.delete({ where: { id: id } });
 
-    return pessoa;
+    return item;
   }
 
   async listAll(): Promise<Pessoa[]> {
-    const pessoas = await Prisma.pessoa.findMany();
+    const itens = await Prisma.pessoa.findMany();
 
-    return pessoas;
+    return itens;
   }
 
   async findById(id: number): Promise<Pessoa | null> {
-    const pessoa = await Prisma.pessoa.findUnique({ where: { id: id } });
+    const item = await Prisma.pessoa.findUnique({ where: { id: id } });
 
-    return pessoa;
+    return item;
   }
 
   async findByName(name: string): Promise<Pessoa[]> {
-    const pessoas = await Prisma.pessoa.findMany({
+    const itens = await Prisma.pessoa.findMany({
       where: {
         nome: {
           contains: name,
@@ -47,6 +47,6 @@ export class PessoaRepository implements Repository<number, Pessoa> {
       },
     });
 
-    return pessoas;
+    return itens;
   }
 }

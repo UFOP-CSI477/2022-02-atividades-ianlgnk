@@ -6,38 +6,38 @@ export class CidadeService implements Service<Cidade> {
   private repository: CidadeRepository = new CidadeRepository();
 
   async create(entity: any): Promise<Cidade> {
-    const cidade = await this.repository.create(entity);
+    const item = await this.repository.create(entity);
 
-    return cidade;
+    return item;
   }
 
   async update(id: number, entity: any): Promise<Cidade> {
-    const cidade = await this.repository.update(id, entity);
+    const item = await this.repository.update(id, entity);
 
-    return cidade;
+    return item;
   }
 
   async delete(id: number): Promise<Cidade> {
-    const cidade = await this.repository.delete(id);
+    const item = await this.repository.delete(id);
 
-    return cidade;
+    return item;
   }
 
   async listAll(): Promise<Cidade[]> {
-    const cidades = await this.repository.listAll();
+    const itens = await this.repository.listAll();
 
-    return cidades;
+    return itens;
   }
 
   async findById(id: number): Promise<Cidade | null> {
-    const cidade = await this.repository.findById(id);
+    const item = await this.repository.findById(id);
 
-    return cidade;
+    return item;
   }
 
   async findByName(name: string): Promise<Cidade[]> {
-    const cidades = await this.repository.findByName(name);
+    const itens = await this.repository.findByName(name);
 
-    return cidades;
+    return itens;
   }
 }

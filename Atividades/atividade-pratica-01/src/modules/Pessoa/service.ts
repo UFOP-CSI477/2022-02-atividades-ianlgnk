@@ -6,38 +6,38 @@ export class PessoaService implements Service<Pessoa> {
   private repository: PessoaRepository = new PessoaRepository();
 
   async create(entity: any): Promise<Pessoa> {
-    const pessoa = await this.repository.create(entity);
+    const item = await this.repository.create(entity);
 
-    return pessoa;
+    return item;
   }
 
   async update(id: number, entity: any): Promise<Pessoa> {
-    const pessoa = await this.repository.update(id, entity);
+    const item = await this.repository.update(id, entity);
 
-    return pessoa;
+    return item;
   }
 
   async delete(id: number): Promise<Pessoa> {
-    const pessoa = await this.repository.delete(id);
+    const item = await this.repository.delete(id);
 
-    return pessoa;
+    return item;
   }
 
   async listAll(): Promise<Pessoa[]> {
-    const pessoas = await this.repository.listAll();
+    const itens = await this.repository.listAll();
 
-    return pessoas;
+    return itens;
   }
 
   async findById(id: number): Promise<Pessoa | null> {
-    const pessoa = await this.repository.findById(id);
+    const item = await this.repository.findById(id);
 
-    return pessoa;
+    return item;
   }
 
   async findByName(name: string): Promise<Pessoa[]> {
-    const pessoas = await this.repository.findByName(name);
+    const itens = await this.repository.findByName(name);
 
-    return pessoas;
+    return itens;
   }
 }

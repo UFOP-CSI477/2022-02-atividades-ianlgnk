@@ -4,46 +4,46 @@ import { Cidade } from "@prisma/client";
 
 export class CidadeRepository implements Repository<number, Cidade> {
   async create(entity: Cidade): Promise<Cidade> {
-    const cidade = await Prisma.cidade.create({
+    const item = await Prisma.cidade.create({
       data: { ...entity },
     });
 
-    return cidade;
+    return item;
   }
 
   async update(id: number, entity: Cidade): Promise<Cidade> {
-    const cidade = await Prisma.cidade.update({
+    const item = await Prisma.cidade.update({
       where: { id: id },
       data: { ...entity },
     });
 
-    return cidade;
+    return item;
   }
 
   async delete(id: number): Promise<Cidade> {
-    const cidade = await Prisma.cidade.delete({
+    const item = await Prisma.cidade.delete({
       where: { id: id },
     });
 
-    return cidade;
+    return item;
   }
 
   async listAll(): Promise<Cidade[]> {
-    const cidade = await Prisma.cidade.findMany();
+    const itens = await Prisma.cidade.findMany();
 
-    return cidade;
+    return itens;
   }
 
   async findById(id: number): Promise<Cidade | null> {
-    const cidade = await Prisma.cidade.findUnique({
+    const item = await Prisma.cidade.findUnique({
       where: { id: id },
     });
 
-    return cidade;
+    return item;
   }
 
   async findByName(name: string): Promise<Cidade[]> {
-    const cidades = await Prisma.cidade.findMany({
+    const itens = await Prisma.cidade.findMany({
       where: {
         nome: {
           contains: name,
@@ -51,6 +51,6 @@ export class CidadeRepository implements Repository<number, Cidade> {
       },
     });
 
-    return cidades;
+    return itens;
   }
 }

@@ -109,4 +109,6 @@ model LocalColeta {
   complemento String
   Cidade      Cidade @relation(fields: [idCidade], references: [id])
   idCidade    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
