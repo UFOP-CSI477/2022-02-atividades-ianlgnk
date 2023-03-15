@@ -22,6 +22,33 @@
             <v-col v-if="form.edit" cols="12">
               <v-text-field v-model="form.id" label="Código" disabled />
             </v-col>
+
+            <v-col cols="12">
+              <v-text-field
+                v-model="form.nome"
+                label="Nome"
+                :rules="[rules.notEmpty]"
+              />
+            </v-col>
+
+            <v-col cols="12">
+              <v-select
+                v-model="form.estado"
+                :items="estados"
+                label="Estado"
+                return-object
+                persistent-hint
+                :rules="[rules.objectNotEmpty]"
+              >
+                <template v-slot:item="{ item }">
+                  {{ item.nome }}, {{ item.sigla }}
+                </template>
+
+                <template v-slot:selection="{ item }">
+                  {{ item.nome }}, {{ item.sigla }}
+                </template>
+              </v-select>
+            </v-col>
           </v-row>
         </v-form>
       </template>
@@ -48,16 +75,42 @@ export default {
         text: "Cód",
         value: "id",
       },
+      {
+        text: "Nome",
+        value: "nome",
+      },
+      {
+        text: "Estado",
+        value: "estado",
+      },
     ],
     form: {
       valid: false,
       edit: false,
       id: "",
+      nome: "",
+      estado: {},
     },
     rules: {
       notEmpty: (val) => (val || "").length > 0 || "Campo obrigatório!",
+      objectNotEmpty: (val) => {
+        if (!val) return "Campo obrigatório!";
+        else return true;
+      },
     },
     loading: true,
+    estados: [
+      {
+        id: 1,
+        nome: "São Paulo",
+        sigla: "SP",
+      },
+      {
+        id: 2,
+        nome: "Rio de Janeiro",
+        sigla: "RJ",
+      },
+    ],
   }),
 
   methods: {
@@ -99,6 +152,8 @@ export default {
         valid: false,
         edit: false,
         id: "",
+        nome: "",
+        estado: {},
       };
     },
 
