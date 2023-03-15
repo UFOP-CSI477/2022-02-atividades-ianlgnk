@@ -1,7 +1,7 @@
 import { Router } from "@/plugins";
 
 const EstadosView = import(
-  /* webpackChunkName: "estados" */ "@/views/home/EstadosView.vue"
+  /* webpackChunkName: "estados" */ "@/views/estados/EstadosView.vue"
 );
 
 Router.addRoutes([

@@ -1,7 +1,6 @@
 import { Router } from "@/plugins";
 
-import "./home";
-import "./list";
+import "./estados";
 
 // main route
 Router.addRoutes([
