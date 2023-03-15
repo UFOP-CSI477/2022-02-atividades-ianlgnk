@@ -22,22 +22,6 @@
             <v-col v-if="form.edit" cols="12">
               <v-text-field v-model="form.id" label="Código" disabled />
             </v-col>
-
-            <v-col cols="12">
-              <v-text-field
-                v-model="form.nome"
-                label="Nome"
-                :rules="[rules.notEmpty]"
-              />
-            </v-col>
-
-            <v-col cols="12">
-              <v-text-field
-                v-model="form.sigla"
-                label="Sigla"
-                :rules="[rules.notEmpty]"
-              />
-            </v-col>
           </v-row>
         </v-form>
       </template>
@@ -64,21 +48,11 @@ export default {
         text: "Cód",
         value: "id",
       },
-      {
-        text: "Nome",
-        value: "nome",
-      },
-      {
-        text: "Sigla",
-        value: "sigla",
-      },
     ],
     form: {
       valid: false,
       edit: false,
       id: "",
-      nome: "",
-      sigla: "",
     },
     rules: {
       notEmpty: (val) => (val || "").length > 0 || "Campo obrigatório!",
@@ -125,8 +99,6 @@ export default {
         valid: false,
         edit: false,
         id: "",
-        nome: "",
-        sigla: "",
       };
     },
 

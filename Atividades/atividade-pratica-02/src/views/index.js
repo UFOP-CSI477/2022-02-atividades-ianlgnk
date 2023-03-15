@@ -1,6 +1,9 @@
 import { Router } from "@/plugins";
 
 import "./estados";
+import "./cidades";
+import "./pessoas";
+import "./tiposSanguineos";
 
 // main route
 Router.addRoutes([
