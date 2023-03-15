@@ -58,7 +58,7 @@ export default {
   },
 
   data: () => ({
-    list: [{ id: 1, nome: "Minas Gerais", sigla: "MG" }],
+    list: [],
     headers: [
       {
         text: "Cód",
@@ -133,6 +133,16 @@ export default {
         sigla: "",
       };
     },
+
+    fetch() {
+      this.loading = true;
+
+      this.loading = false;
+    },
+  },
+
+  mounted() {
+    this.fetch();
   },
 };
 </script>
