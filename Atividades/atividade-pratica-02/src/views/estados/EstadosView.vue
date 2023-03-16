@@ -49,6 +49,8 @@
 import List from "@/components/List.vue";
 import Form from "@/components/Form.vue";
 
+const baseApiRoute = "http://localhost:4001/estado";
+
 export default {
   name: "EstadosView",
 
@@ -105,19 +107,36 @@ export default {
       this.$nextTick(() => this.$refs.form.resetValidation());
     },
 
-    onClickBtnDelete(selected) {
-      selected.forEach((item) => {
-        console.log("delete item id: " + item.id);
-      });
+    async onClickBtnDelete(selected) {
+      for (let index = 0; index < selected.length; index++) {
+        const item = selected[index];
+        await this.$axios.delete(baseApiRoute + "/" + item.id);
+      }
+
+      this.fetch();
     },
 
     onCancelDialog() {
       this.resetItem();
     },
 
-    onSubmitForm() {
+    async onSubmitForm() {
       if (!this.$refs.form.validate()) return;
+
+      const sendObj = {
+        id: this.form.id,
+        nome: this.form.nome,
+        sigla: this.form.sigla,
+      };
+
+      if (sendObj.id === "") {
+        delete sendObj.id;
+        await this.$axios.post(baseApiRoute, sendObj);
+      } else await this.$axios.put(baseApiRoute + "/" + sendObj.id, sendObj);
+
+      this.$refs.Form.dialog = false;
       this.resetItem();
+      this.fetch();
     },
 
     resetItem() {
@@ -130,8 +149,10 @@ export default {
       };
     },
 
-    fetch() {
+    async fetch() {
       this.loading = true;
+
+      this.list = await this.$axios.get(baseApiRoute).then(({ data }) => data);
 
       this.loading = false;
     },

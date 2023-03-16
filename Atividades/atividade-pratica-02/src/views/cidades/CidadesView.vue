@@ -34,10 +34,10 @@
             <v-col cols="12">
               <v-select
                 v-model="form.estado"
-                :items="estados"
+                :items="estadoCombo"
+                item-value="id"
                 label="Estado"
                 return-object
-                persistent-hint
                 :rules="[rules.objectNotEmpty]"
               >
                 <template v-slot:item="{ item }">
@@ -60,6 +60,8 @@
 import List from "@/components/List.vue";
 import Form from "@/components/Form.vue";
 
+const baseApiRoute = "http://localhost:4001/cidade";
+
 export default {
   name: "EstadosView",
 
@@ -79,10 +81,6 @@ export default {
         text: "Nome",
         value: "nome",
       },
-      {
-        text: "Estado",
-        value: "estado",
-      },
     ],
     form: {
       valid: false,
@@ -94,23 +92,12 @@ export default {
     rules: {
       notEmpty: (val) => (val || "").length > 0 || "Campo obrigatório!",
       objectNotEmpty: (val) => {
-        if (!val) return "Campo obrigatório!";
+        if (Object.keys(val).length === 0) return "Campo obrigatório!";
         else return true;
       },
     },
     loading: true,
-    estados: [
-      {
-        id: 1,
-        nome: "São Paulo",
-        sigla: "SP",
-      },
-      {
-        id: 2,
-        nome: "Rio de Janeiro",
-        sigla: "RJ",
-      },
-    ],
+    estadoCombo: [],
   }),
 
   methods: {
@@ -118,6 +105,10 @@ export default {
       this.resetItem();
       this.form.edit = true;
       Object.assign(this.form, opts);
+
+      this.form.estado = this.estadoCombo.find(
+        (x) => x.id === this.form.idEstado
+      );
 
       this.$refs.Form.dialog = true;
 
@@ -132,19 +123,36 @@ export default {
       this.$nextTick(() => this.$refs.form.resetValidation());
     },
 
-    onClickBtnDelete(selected) {
-      selected.forEach((item) => {
-        console.log("delete item id: " + item.id);
-      });
+    async onClickBtnDelete(selected) {
+      for (let index = 0; index < selected.length; index++) {
+        const item = selected[index];
+        await this.$axios.delete(baseApiRoute + "/" + item.id);
+      }
+
+      this.fetch();
     },
 
     onCancelDialog() {
       this.resetItem();
     },
 
-    onSubmitForm() {
+    async onSubmitForm() {
       if (!this.$refs.form.validate()) return;
+
+      const sendObj = {
+        id: this.form.id,
+        nome: this.form.nome,
+        idEstado: this.form.estado.id,
+      };
+
+      if (sendObj.id === "") {
+        delete sendObj.id;
+        await this.$axios.post(baseApiRoute, sendObj);
+      } else await this.$axios.put(baseApiRoute + "/" + sendObj.id, sendObj);
+
+      this.$refs.Form.dialog = false;
       this.resetItem();
+      this.fetch();
     },
 
     resetItem() {
@@ -157,15 +165,24 @@ export default {
       };
     },
 
-    fetch() {
+    async fetch() {
       this.loading = true;
 
+      this.list = await this.$axios.get(baseApiRoute).then(({ data }) => data);
+
       this.loading = false;
+    },
+
+    async combo() {
+      this.estadoCombo = await this.$axios
+        .get("http://localhost:4001/estado")
+        .then(({ data }) => data);
     },
   },
 
   mounted() {
     this.fetch();
+    this.combo();
   },
 };
 </script>
