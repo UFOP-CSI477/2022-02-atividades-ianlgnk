@@ -22,7 +22,7 @@ A plataforma de gerenciamento de estágios é uma ferramenta online que facilita
 
 ### 2. Funcionalidades previstas e não implementadas
 
-- Menu de busca de vagas, todas as vagas foram
+- Menu de busca de vagas, todas as vagas exibidas
 
 ### 3. Outras funcionalidades implementadas
 
